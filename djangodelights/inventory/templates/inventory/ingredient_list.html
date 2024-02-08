@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% block content %}
+
+    <h2> Ingredient Inventory </h2>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price per Unit</th>
+        </thead>
+        {% for ingredient in object_list %}
+            <tr>
+                <td> 
+                    <a href = "{% url 'ingredient_update' ingredient.id %}">{{ingredient.name}}</a>
+                </td>
+                <td> {{ingredient.quantity}}</td>
+                <td> {{ingredient.unit}}</td>
+                <td> {{ingredient.price_per_unit}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

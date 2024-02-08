@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+{% block content %}
+
+    <h2> Menu Items </h2>
+    <ul>
+        {% for menu_item in object_list %}
+            <li>
+                <div> {{menu_item.name}} ... {{menu_item.price}} </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

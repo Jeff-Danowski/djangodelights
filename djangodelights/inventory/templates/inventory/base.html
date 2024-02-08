@@ -1,0 +1,35 @@
+
+<head>
+    <title>
+        {% block title %}Django Delights{% endblock %}
+    </title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Django Delights</h1>
+        <nav>
+            {% url 'home' as home_url %}
+            <a class= 'nav-item{% if request.path == home_url %} current-page{% endif %}' href = "{% url 'home' %}" >Home</a>
+            <text>|</text>
+            {% url 'ingredients' as ingredients_url %}
+            <a class= 'nav-item{% if request.path == ingredients_url %} current-page{% endif %}' href = "{% url 'ingredients' %}" >Inventory</a>
+            <text>|</text>
+            {% url 'menu' as menuitems_url %}
+            <a class= 'nav-item{% if request.path == hmenuitems_url %} current-page{% endif %}' href = "{% url 'menuitems' %}" >Current Menu </a>
+            <text>|</text>
+            {% url 'purchases' as purchases_url %}
+            <a class= 'nav-item{% if request.path == purchases_url %} current-page{% endif %}' href = "{% url 'purchases' %}" >Sales</a>
+            <text>|</text>
+            {% url 'financials' as financials_url %}
+            <a class= 'nav-item{% if request.path == financials_url %} current-page{% endif %}' href = "{% url 'financials' %}" >Financials</a>
+        </nav>
+    </header>
+    <main>
+
+
+        {% block content %}
+            <p>Base Test!</p>
+        {% endblock %}
+    </main>
+</body>

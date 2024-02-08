@@ -1,11 +1,12 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Ingredient(models.Model):
     name = models.CharField(max_length = 200)
     quantity = models.FloatField(default = 0.0)
     unit = models.CharField(max_length = 200)
-    price_per_unit = models.FloatField(defualt = 0)
+    price_per_unit = models.FloatField(default = 0)
 
     def __str__(self):
         return f"{self.name} has {self.quantity} {self.unit} left and is {self.price_per_unit} per {self.unit}."
@@ -15,7 +16,7 @@ class MenuItem(models.Model):
     price = models.FloatField(default = 0.00)
 
     def __str__(self):
-        return f"{self.name} : {self.price}"
+        return f"{self.name}"
 
 class RecipeRequirements(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete = models.CASCADE)
@@ -27,7 +28,7 @@ class RecipeRequirements(models.Model):
 
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete = models.CASCADE)
-    time_purchased = models.DateTimeField()
+    time_purchased = models.DateTimeField(default = datetime.now())
 
     def __str__(self):
         return f"{self.menu_item} was purchased {self.time_purchased}"

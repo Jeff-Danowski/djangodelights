@@ -1,0 +1,55 @@
+{% extends './base.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <h2> Menu </h2>
+    <ul>
+        {% for menu_item in menue_items %}
+            <li>
+                <div> {{menu_item.name}} ... {{menu_item.price}} </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <h2> Ingredient Inventory </h2>
+        <table>
+        <thead>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Price per Unit</th>
+        </thead>
+        {% for ingredient in ingredients %}
+            <tr>
+                <td> {{ingredient.name}}</td>
+                <td> {{ingredient.quantity}}</td>
+                <td> {{ingredient.unit}}</td>
+                <td> {{ingredient.price_per_unit}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h2> Sales </h2>
+    <table>
+        <thead>
+            <th>Menu Item</th>
+            <th>Price</th>
+            <th>Time</th>
+        </thead>
+        {% for purchase in purchases %}
+            <tr>
+                <td> {{purchase.menu_item}}</td>
+                <td> {{purchase.menu_item.price}}</td>
+                <td> {{purchase.time_purchased}}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

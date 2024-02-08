@@ -1,0 +1,10 @@
+{% extends './base.html' %}
+{% block content %}
+
+<h2> Financials </h2>
+
+<div> Total Revenue.........${{revenue|stringformat:'.2f'}}</div>
+<div> Total Cost................${{total_cost|stringformat:'.2f'}}</div>
+<div> Profit........................${{profit|stringformat:'.2f'}}</div>
+
+{% endblock %}
